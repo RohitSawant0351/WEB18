@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <style>
+        #navbar{
+            height: 50px;
+            width: 50%;
+            background-color: rgb(41, 178, 232);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: auto;
+            font-size: 25px;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+        }
+
+        #investorForm{
+            margin: auto;
+            text-align: center;
+            display: block;
+        }
+        
+
+    </style>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BACKEND</title>
+</head>
+<body>
+    <div id="navbar" >
+        <div id="frontend"><a href="frontend.html">FRONTEND</a></div>
+        <div id="backend" ><a href="backend.html">BACKEND</a></div>
+    </div>
+    
+<form id="investorForm" >
+    <h4>Profile Picture:</h4>
+    <input id="avtar" type="text" placeholder="Please upload the link">
+    <br>
+    <h4>Enter Name:</h4>
+    <input id="name" type="text" placeholder="Please Enter Name">
+    <br>
+    <h4>Enter Role:</h4>
+    <input id="role" type="text" placeholder="Please enter the Role">
+    <br>
+    <h4>Company Logo:</h4>
+    <input  id="logo" type="text" placeholder="Please upload the link" >
+    <hr>
+    <input type="submit"  id="button">
+</form>
+
+</body>
+</html>
+
+<script>
+
+document.
+querySelector("#investorForm").
+addEventListener("submit",userData)
+
+var investorArr =  JSON.parse(localStorage.getItem(investorArr)) || [];
+
+function userData(){
+    event.preventDefault();
+
+    var investorObj= {
+        investorImg: document.querySelector("#avtar").value,
+        investorName: document.querySelector("#name").value,
+        investorRole: document.querySelector("#role").value,
+        investorCompany: document.querySelector("#logo").value
+    };
+
+    // console.log(investorObj)
+
+    investorArr.push(investorObj)
+     // console.log(investorArr);
+    localStorage.setItem("investorsData",JSON.stringify(investorArr))
+
+}
+
+</script>
+</html>

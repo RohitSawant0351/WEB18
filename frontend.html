@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FRONTEND</title>
+
+
+    <style>
+        
+        #navbar{
+
+            height: 50px;
+            width: 50%;
+            background-color: rgb(41, 178, 232);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: auto;
+            font-size: 25px;
+}
+
+        #container{
+
+            height: 650px;
+            width: 90%;
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 25px;
+            margin: auto;
+            margin-top: 30px;
+        }
+
+        #container >div
+        {
+            height: 300px;
+            width: 250px;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+            border-radius: 5px;
+            }
+
+        #container >div > img:first-child{
+            height: 200px;
+            width: 100%;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            /* border: 1px solid; */
+         
+        }
+
+        div > h2,p{
+            text-align: center;
+            margin-bottom: -2%;
+            font-size: 18px;
+        
+        }
+       div > p {
+        margin-bottom: -4%;
+        font-size: 12px
+        }
+
+      div > p + img 
+        {
+            height: 50px;
+            width: 100px;
+           margin-left: 30%;
+           ;
+        }
+     
+
+
+    </style>
+</head>
+<body>
+    <div id="navbar" >
+        <div id="home" ><a href="navbar.html">Homepage</a></div>
+        <div id="frontend"><a href="frontend.html">Frontend</a></div>
+        <div id="backend" ><a href="backend.html">Backend</a></div>
+    </div>
+    
+    <div id="container"></div>
+
+    
+</body>
+</html>
+
+<script>
+
+
+
+var investorsArr = JSON.parse(localStorage.getItem("investorsData")) || []
+    
+investorsArr.forEach(function (element){
+    // event.preventDefault()
+
+        var tab= document.createElement("div")
+
+          var image = document.createElement("img")
+          image.setAttribute("src",element.investorImg)
+
+          var name= document.createElement("h2")
+          name.innerText= element.investorName
+          
+          var role= document.createElement("p")
+          role.innerText= element.investorRole
+          
+          var company= document.createElement("img")
+          company.setAttribute("src",element.investorCompany)
+        //   company.setAttribute("id",logo)
+
+          tab.append(image,name,role,company)
+          document.querySelector("#container").append(tab)
+
+        localStorage.setItem("investorsData",JSON.stringify(investorsArr))
+    })
+
+
+
+
+</script>
