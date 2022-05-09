@@ -1,0 +1,37 @@
+
+
+nav{
+    height: 70px;
+    width: 98%;
+    background-color: rgb(7, 7, 70);
+    display: flex;
+    justify-content: space-between;
+    border-radius: 10px;
+    margin: auto;
+    margin-bottom: 5%;
+
+}
+div{
+    display: flex;
+    justify-content: space-evenly;
+    width: 40%;
+}
+
+a{
+    color: white;
+    font-size: 18px;
+    display:flex;
+    align-items: center;
+
+
+}
+p{
+    color: white;
+    font-size: 35px;
+    font-weight: bold;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-left: 2%;
+    text-decoration: underline;
+    margin-top: 15px;
+    
+}
