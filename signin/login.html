@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login page</title>
+    <link rel="stylesheet" href="./login.css">
+</head>
+<body>
+    <nav>
+        <a href="index.html">Signup</a>
+        <a href="login.html">Login</a>
+    </nav>
+
+    <form id="form">
+        
+        <br>
+        <h1>Please Login to proceed</h1>
+        <h3>Email ID</h3>
+        <input type="email" placeholder="Please enter the Email ID" id="email">
+        <br>
+        <br>
+        <h3>Password</h3>
+        <input type="password" placeholder="Please enter your Password" id="password">
+        <br>
+        <br>
+        <input type="submit" value="Login" id="button">
+    
+
+    </form>
+   
+    
+</body>
+</html>
+<script>
+
+var form=  document.querySelector("#form")
+form.addEventListener("submit", check)
+
+    var data=  JSON.parse(localStorage.getItem("signData")) 
+
+    function check(){
+        event.preventDefault()
+        
+        
+        var loginData=
+        {
+            email:document.querySelector("#email").value,
+            password:document.querySelector("#password").value
+        }
+      
+
+        if(data == null)
+        {
+            alert("Please create an Account")
+        }
+        else if (data.email==loginData.email  && data.password == loginData.password)
+        {
+            alert("Login Sucessfull")
+        }
+        else if (data.email!= loginData.email  && data.password != loginData.password)
+        {
+            alert("Entered Incorrect Email ID or password, Please enter the correct Email ID & Password")
+        }
+        else if (loginData.email==  null  && loginData.password == null)
+        {
+            alert("Please Fill the Inputs")
+        }
+
+
+
+    }
+
+</script>
+

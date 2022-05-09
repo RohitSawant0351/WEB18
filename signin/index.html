@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup/Login</title>
+    <link rel="stylesheet" href="./sigup.css">
+</head>
+
+<body>
+    <nav>
+        <a href="index.html">Signup</a>
+        <a href="login.html">Login</a>
+    </nav>
+
+    <form id="form">
+
+        <h1>Welcome, Please Sign in </h1>
+        <br>
+        <br>
+        <h3>Email:</h3>
+        <input type="email" placeholder="Please enter your Email ID" id="email">
+        <br>
+        <h3>Password:</h3>
+        <input type="password" placeholder="Please enter your password" id="password">
+        <br>
+        <hr>
+        <input type="submit" value="Sign In" id="button">
+        
+
+    </form>
+
+    
+</body>
+</html>
+
+<script>
+        
+// functions for signup page
+
+document.querySelector("#form").addEventListener("submit", Signin)
+
+
+// var Sdata= JSON.parse(localStorage.getItem("signData")) ;
+
+    function Signin(){
+
+    event.preventDefault()
+    
+    var Sdata=
+    {
+            email:document.querySelector("#email").value,
+            password:document.querySelector("#password").value
+    }
+
+    if(Sdata.email == "")    {
+        alert("Please enter Email ID")
+    }
+    else if (Sdata.password == "" )
+    {
+        alert("Please enter Password")
+    }
+    
+
+    
+    localStorage.setItem("signData",JSON.stringify(Sdata))
+        window.location.href="login.html"
+}
+    
+        
+    
+
+// console.log(signupData)
+
+
+
+
+
+
+
+</script>
